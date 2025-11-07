@@ -2,6 +2,7 @@ from redis import asyncio as aioredis
 from fastapi import Request, HTTPException
 from core.auth import verify_token
 
+
 # Redis connection URL
 REDIS_URL = "redis://localhost:6380"
 
@@ -14,7 +15,11 @@ WINDOW_SIZE = 30     # seconds before reset
 
 # 🔹 Create Redis connection
 async def get_redis():
-    return await aioredis.from_url(REDIS_URL, encoding="utf-8", decode_responses=True)
+    return aioredis.from_url(
+        REDIS_URL,
+        encoding="utf-8",
+        decode_responses=True,
+    )
 
 
 # 🔹 Rate limiter logic
