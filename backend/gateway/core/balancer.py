@@ -4,6 +4,8 @@ import httpx
 from redis import asyncio as aioredis
 from typing import List, Dict, Optional
 
+from core.config import UPSTREAMS as DEFAULT_UPSTREAMS
+
 ##################    CONFIGURATION #############
 
 REDIS_URL = "redis://localhost:6380"    
@@ -16,10 +18,7 @@ HEALTH_KEY_PREFIX = "up_health:"
 FAIL_KEY_PREFIX = "up_fail:"             
 LATENCY_KEY_PREFIX = "up_lat:" 
 
-DEFAULT_UPSTREAM = [
-    "http://localhost:7001",
-    "http://localhost:7002",
-]
+
 
 
 async def get_redis():
@@ -106,7 +105,7 @@ async def decr_connetion(upstream : str):
     if val is None:
         await redis.set(key, 0)
         
-    async def get_upstream_status(upstream: List[str]):
+async def get_upstream_status(upstream: List[str]):
         redis = await get_redis()
         result = {}
         
@@ -123,4 +122,4 @@ async def decr_connetion(upstream : str):
             "connections": int(conn),
             }
             
-            return result
+        return result

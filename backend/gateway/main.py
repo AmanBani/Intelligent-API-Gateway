@@ -10,6 +10,10 @@ from core import balancer
 import asyncio
 from typing import List, Dict, Optional
 
+from routes.admin_routes import router as admin_router
+from core.config import UPSTREAMS as upstream_servers
+
+
 
 app = FastAPI(
     title="Intelligent API-Gateway",
@@ -17,11 +21,10 @@ app = FastAPI(
 )
 
 app.include_router(public_router)
+app.include_router(admin_router)
 
-upstream_servers = [
-    "http://localhost:7001",  
-    "http://localhost:7002",  
-]
+
+
 
 
 upstream_cycle = itertools.cycle(upstream_servers)
