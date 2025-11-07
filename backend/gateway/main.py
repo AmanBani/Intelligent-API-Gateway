@@ -1,11 +1,20 @@
-from fastapi import FastAPI, Request,Response
 import httpx
 import itertools
+
+from fastapi import FastAPI, Request,Response, HTTPException
+from core.rate_limiter import rate_limiter
+from routes.public_routes import router as public_router
+from core.auth import verify_token
+
+
+
 
 app = FastAPI(
     title="Intelligent API-Gateway",
     version="1.0",
 )
+
+app.include_router(public_router)
 
 upstream_servers = [
     "http://localhost:7001",  
@@ -18,6 +27,18 @@ upstream_cycle = itertools.cycle(upstream_servers)
 
 @app.api_route("/{path:path}",methods = ["GET","POST","PUT","PATCH","DELETE"])
 async def proxy(path: str = "", request: Request=None):
+    
+    # JWT Authtentication
+    try:
+        user_paylod = verify_token(request)
+    except HTTPException as e:
+        return Response(content=e.detail, status_code=e.status_code)
+    
+    # Rate Limiter
+    try:
+        await rate_limiter(request)
+    except HTTPException as e:
+        return Response(content=e.detail, status_code=e.status_code)
     
     upstream = next(upstream_cycle)
     if path == "":
