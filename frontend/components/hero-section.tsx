@@ -7,6 +7,8 @@ import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from "@/components/header"
 
+import system_design from "@/public/images/system_design.jpg"
+
 const transitionVariants = {
     item: {
         hidden: {
@@ -30,7 +32,7 @@ const transitionVariants = {
 export default function MainSection() {
     return (
         <>
-            <HeroHeader />
+          
             <main className="overflow-hidden">
                 <div
                     aria-hidden
@@ -82,42 +84,35 @@ export default function MainSection() {
                         />
 
                         <div className="mx-auto max-w-7xl px-6">
-                            <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
-                                <AnimatedGroup variants={transitionVariants}>
-                                    <Link
-                                        href="#link"
-                                        className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950">
-                                        <span className="text-foreground text-sm">Introducing Support for AI Models</span>
-                                        <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
+                            <div className="text-center sm:mx-auto lg:mr-100 lg:mt-0">
 
-                                        <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
-                                            <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
-                                                <span className="flex size-6">
-                                                    <ArrowRight className="m-auto size-3" />
-                                                </span>
-                                                <span className="flex size-6">
-                                                    <ArrowRight className="m-auto size-3" />
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </AnimatedGroup>
+             
+  {/* <Image
+    src={system_design}
+    alt="System Design Diagram"
+    className="w-130 ml-200 h-auto max-w-md lg:max-w-full rounded-xl object-cover shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-3xl hover:-translate-y-2"
+    width="3276"
+    height="4095"
+  /> */}
 
+
+                                
                                 <TextEffect
                                     preset="fade-in-blur"
-                                    speedSegment={0.3}
+                                    speedSegment={0.1}
                                     as="h1"
-                                    className="mx-auto mt-8 max-w-4xl text-balance text-5xl max-md:font-semibold md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                                    Modern Solutions for Customer Engagement
+                                    className="mx-auto mt-2 max-w-4xl text-balance text-5xl max-md:font-semibold md:text-9xl lg:mt-3 xl:text-[7rem] text-gray-300">
+                                    System Desing PlayGround
                                 </TextEffect>
+                    
                                 <TextEffect
                                     per="line"
                                     preset="fade-in-blur"
                                     speedSegment={0.3}
-                                    delay={0.5}
+                                    delay={0.2}
                                     as="p"
                                     className="mx-auto mt-8 max-w-2xl text-balance text-lg">
-                                    Highly customizable components for building modern websites and applications that look and feel the way you mean it.
+                                    A Place where you visualize and interact with Real Time Implemented System Design Topics.
                                 </TextEffect>
 
                                 <AnimatedGroup
@@ -141,7 +136,7 @@ export default function MainSection() {
                                             size="lg"
                                             className="rounded-xl px-5 text-base">
                                             <Link href="#link">
-                                                <span className="text-nowrap">Start Building</span>
+                                                <span className="text-nowrap">Review This</span>
                                             </Link>
                                         </Button>
                                     </div>
@@ -150,9 +145,9 @@ export default function MainSection() {
                                         asChild
                                         size="lg"
                                         variant="ghost"
-                                        className="h-10.5 rounded-xl px-5">
+                                        className="h-10.5 rounded-xl px-5 bg-gray-900">
                                         <Link href="#link">
-                                            <span className="text-nowrap">Request a demo</span>
+                                            <span className="text-nowrap">Aman Bani</span>
                                         </Link>
                                     </Button>
                                 </AnimatedGroup>
