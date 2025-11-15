@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, ChevronRight } from 'lucide-react'
@@ -7,6 +9,9 @@ import { TextEffect } from '@/components/ui/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { HeroHeader } from "@/components/header"
 import IntegrationsSection from "@/components/integrations-4"
+
+import { motion } from "framer-motion";
+const MotionButton = motion(Button);
 
 
 import system_design from "@/public/images/system_design.jpg"
@@ -35,7 +40,7 @@ export default function MainSection() {
     return (
         <>
           
-            <main className="overflow-hidden">
+            <main className="overflow-hidden h-screen">
                 <div
                     aria-hidden
                     className="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block">
@@ -103,7 +108,7 @@ export default function MainSection() {
                                     preset="fade-in-blur"
                                     speedSegment={0.1}
                                     as="h1"
-                                    className="mx-auto mt-2 max-w-4xl text-balance text-5xl max-md:font-semibold md:text-9xl lg:mt-3 xl:text-[7rem] text-gray-300">
+                                    className="mx-auto mt-2  font-serif max-w-4xl text-balance text-5xl max-md:font-semibold md:text-9xl lg:mt-3 xl:text-[7rem] text-yellow-300">
                                     System Desing PlayGround
                                 </TextEffect>
                     
@@ -113,7 +118,7 @@ export default function MainSection() {
                                     speedSegment={0.3}
                                     delay={0.2}
                                     as="p"
-                                    className="mx-auto mt-8 max-w-2xl text-balance text-lg">
+                                    className="mx-auto mt-8 max-w-2xl text-balance text-lg font-mono">
                                     A Place where you visualize and interact with Real Time Implemented System Design Topics.
                                 </TextEffect>
 
@@ -142,16 +147,32 @@ export default function MainSection() {
                                             </Link>
                                         </Button>
                                     </div>
-                                    <Button
-                                        key={2}
-                                        asChild
-                                        size="lg"
-                                        variant="ghost"
-                                        className="h-10.5 rounded-xl px-5 bg-gray-900">
-                                        <Link href="#link">
-                                            <span className="text-nowrap">Aman Bani</span>
-                                        </Link>
-                                    </Button>
+                                  <MotionButton
+                                    key={2}
+                                    size="lg"
+                                    variant="ghost"
+                                     className="h-10.5 rounded-xl px-5 bg-gray-900 "
+                                     whileHover={{ scale: 1.05 }}
+                                     whileTap={{ scale: 0.95 }}
+                                     
+                                    //  initial={{ y: -100, opacity: 0 }}
+                                    //     animate={{
+                                    //         y: 0,
+                                    //         opacity: 1,
+                                    //     }}
+                                    //     transition={{
+                                    //         type: "spring",
+                                    //         stiffness: 120,
+                                    //         damping: 10,
+                                    //         duration: 4,
+                                    //         delay: 1
+                                    //     }}
+                                     
+>
+                                <Link href="#link">
+                                    <span className="text-nowrap">Aman Bani</span>
+                                </Link>
+                                </MotionButton>
                                 </AnimatedGroup>
                             </div>
                             
