@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Settings2, Sparkles, Zap } from 'lucide-react'
 import { ReactNode } from 'react'
 import { DoorOpen } from 'lucide-react';
+import { Button } from '@mui/material';
 
 export default function Features({ className = "" }) {
     return (
@@ -20,11 +21,25 @@ export default function Features({ className = "" }) {
                             </CardDecorator>
 
                             <h3 className="mt-6 text-3xl font-mono">API Gateway</h3>
+                            
                         </CardHeader>
 
                         <CardContent>
                             <p className="text-sm font-mono">Extensive customization options, allowing you to tailor every aspect to meet your specific needs.</p>
                         </CardContent>
+                       <div className="flex justify-center mt-4">
+    <Button
+        className="w-20 h-8"
+        href="/api-gateway"
+        sx={{
+            backgroundColor: "blue",
+            color: "white",
+            fontFamily:'monospace',
+        }}
+    >
+        Visit
+    </Button>
+</div>
                     </Card>
 
                     <Card className="group shadow-zinc-950/5">

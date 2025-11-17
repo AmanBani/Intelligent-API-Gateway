@@ -1,45 +1,124 @@
-import React from 'react'
+"use client";
+
+import React from 'react';
 import Image from "next/image";
-
-
-import Desktop from "@/./public/images/desktop.jpg"
-import Phone from '@/public/images/phone.jpg'
-import Laptop from '@/public/images/Laptop.jpg'
-
 import { motion } from "framer-motion";
-import Typography from '@mui/material/Typography'
-// const MotionButton = motion(Button);
+import Typography from '@mui/material/Typography';
+
+import Desktop from "@/./public/images/desktop.jpg";
+import Phone from '@/public/images/phone.jpg';
+import Laptop from '@/public/images/Laptop.jpg';
 
 const page = () => {
   return (
-    <div> 
-        <div className='w-20 h-20 pt-12 ml-10'>
-        <Image src={Desktop}  alt="Desktop"  />
-        <Image src={Phone} alt="Laptop" className='mt-10' />
-        <Image src={Laptop} alt='Phone' className='mt-10' />
-        </div>
-        <div className='w-30 h-100 bg-red-500 border-2 align-middle mt-30 ml-100 '>
-    <Typography
-  variant="h3"
-  sx={{
-    color: "white",
-    fontFamily: "monospace",
-    writingMode: "sideways-lr",
-    textOrientation: "upright",
-    padding: "25px",
-    justifyContent : "center",
-    alignItems: "center",
-    alignContent: "center",
+    <>
+    <div className=' w-screen h-screen '>
+       <Typography sx={{
+            fontFamily: 'sans-serif',
+            fontWeight: 700,
+            fontSize: "4.5rem",
+            color: "white",
+            display:'flex',
+            alignContent: 'center',
+            justifyContent:'center',
+            marginBottom:-10,
 
-  }}
->
-  Load Balancer
-</Typography>
+        }}>Intelligent API Gateway</Typography>
+    <div className="flex items-center  min-h-screen bg-black p-2">
+     
+      <div className="flex items-center gap-8">
+        
+        <div className="flex flex-col gap-20">
+          <div className="w-24 h-20">
+            <Image src={Desktop} alt="Desktop" width={96} height={80} />
+          </div>
+          <div className="w-24 h-20">
+            <Image src={Phone} alt="Phone" width={96} height={80} />
+          </div>
+          <div className="w-24 h-20">
+            <Image src={Laptop} alt="Laptop" width={96} height={80} />
+          </div>
         </div>
+
+            <div className="relative flex items-center" style={{ width: '250px', height: '400px' }}>
+          <svg width="250" height="400" className="absolute" style={{ left: 0 }}>
+            <line x1="0" y1="50" x2="250" y2="200" stroke="#fbbf24" strokeWidth="3" />
+            <line x1="0" y1="200" x2="250" y2="200" stroke="#fbbf24" strokeWidth="3" />
+            <line x1="0" y1="350" x2="250" y2="200" stroke="#fbbf24" strokeWidth="3" />
+          </svg>
+          
+          <motion.div
+            className="absolute w-20 h-8 bg-orange-400 flex items-center justify-center text-white font-bold text-sm rounded"
+            initial={{ x: -10, y: -140 }}
+            animate={{ x: 170, y: 5}}
+            transition={{
+              duration: 10,
+              delay:2,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "linear"
+            }}
+          >
+            Request
+          </motion.div>
+          
+           <motion.div
+            className="absolute w-20 h-8 bg-orange-400 flex items-center justify-center text-white font-bold text-sm rounded"
+            initial={{ x: 0, y: 3 }}
+            animate={{ x: 200, y: 0 }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "linear",
+              delay: 2
+            }}
+          >
+            Request
+          </motion.div>
+          
+          <motion.div
+            className="absolute w-20 h-8 bg-orange-400 flex items-center justify-center text-white font-bold text-sm rounded"
+            initial={{ x: 0, y: 140 }}
+            animate={{ x: 170, y: -5 }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "linear",
+              delay: 2
+            }}
+          >
+            Request
+          </motion.div>
+        </div>
+
+
+        <div className="bg-red-500 flex items-center " style={{ width: '100px', height: '400px', marginLeft:"0px"}}>
+          <Typography
+            variant="h3"
+          sx={{ color: "white", fontFamily: "monospace", writingMode: "sideways-lr", textOrientation: "upright", padding: "25px", justifyContent : "center", alignItems: "center", alignContent: "center", }}
+          >
+            Load Balancer
+          </Typography>
+        </div>
+
+      </div>
+    </div>
+
+    {/* CODE SECTION */}
+    <div>
 
 
     </div>
-  )
-}
 
-export default page
+
+
+
+
+    </div>
+    </>
+  );
+};
+
+export default page;
