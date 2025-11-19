@@ -3,6 +3,7 @@ import { Settings2, Sparkles, Zap } from 'lucide-react'
 import { ReactNode } from 'react'
 import { DoorOpen } from 'lucide-react';
 import { Button } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
 export default function Features({ className = "" }) {
     return (
@@ -74,7 +75,14 @@ export default function Features({ className = "" }) {
                         <CardContent>
                             <p className="mt-3 text-sm font-mono">Elements to functionality, you have complete control to create a unique experience.</p>
                         </CardContent>
+                        
                     </Card>
+                    <Typography
+                                variant="h3"
+                              sx={{ color: "white", fontFamily: "monospace", writingMode: "sideways-lr", textOrientation: "upright", padding: "25px", justifyContent : "center", alignItems: "center", alignContent: "center", }}
+                              >
+                                Load Balancer
+                              </Typography>
                 </div>
             </div>
         </section>
