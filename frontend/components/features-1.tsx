@@ -77,12 +77,6 @@ export default function Features({ className = "" }) {
                         </CardContent>
                         
                     </Card>
-                    <Typography
-                                variant="h3"
-                              sx={{ color: "white", fontFamily: "monospace", writingMode: "sideways-lr", textOrientation: "upright", padding: "25px", justifyContent : "center", alignItems: "center", alignContent: "center", }}
-                              >
-                                Load Balancer
-                              </Typography>
                 </div>
             </div>
         </section>
