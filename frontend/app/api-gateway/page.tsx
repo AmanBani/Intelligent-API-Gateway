@@ -118,6 +118,21 @@ const page = () => {
   <svg width="300" height="400" className="absolute left-[100px]">
     <line x1="0" y1="200" x2="300" y2="200" stroke="#fbbf24" strokeWidth="4" />
   </svg>
+     <motion.div
+    className="absolute w-20 h-8 bg-orange-400 flex items-center justify-center text-white font-bold text-sm rounded"
+    style={{ top: "192px" }}  // aligns vertically on yellow line
+    initial={{ x: 100 }}
+    animate={{ x: 300 }}       // moves exactly from start to end of line
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+      repeatType: "loop",
+      ease: "linear",
+      delay: 11,
+    }}
+  >
+    Request
+  </motion.div>
 
   {/* API Gateway */}
   <div className="bg-red-500 flex items-center justify-center ml-[300px]"
@@ -136,11 +151,21 @@ const page = () => {
     </Typography>
   </div>
 
+      <svg width="250" height="400" className="absolute" style={{ left: 500 }}>
+            <line x1="0" y1="200" x2="250" y2="50" stroke="#fbbf24" strokeWidth="3" />
+            <line x1="0" y1="200" x2="250" y2="200" stroke="#fbbf24" strokeWidth="3" />
+            <line x1="0" y1="200" x2="250" y2="350" stroke="#fbbf24" strokeWidth="3" />
+      </svg>
+
+  
+
 </div>
+
 
 
       </div>
     </div>
+    
 
     {/* CODE SECTION */}
     <div>
