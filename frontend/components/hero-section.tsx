@@ -178,6 +178,12 @@ export default function MainSection() {
                                  <Link href="#link">
                                     <span className="text-nowrap">Aman Bani</span>
                                 </Link>
+                                <Link href="#link">
+                                    <span className="text-nowrap">Aman Bani</span>
+                                </Link>
+                                <Link href="#link">
+                                    <span className="text-nowrap">Aman Bani</span>
+                                </Link>
                                 </MotionButton>
                                 </AnimatedGroup>
                             </div>
