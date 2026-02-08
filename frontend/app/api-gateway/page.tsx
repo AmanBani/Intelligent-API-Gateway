@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Typography from '@mui/material/Typography';
 
 import Desktop from "@/./public/images/desktop.jpg";
 import Phone from '@/public/images/phone.jpg';
@@ -13,17 +12,9 @@ const page = () => {
   return (
     <>
     <div className=' w-screen h-screen '>
-       <Typography sx={{
-            fontFamily: 'sans-serif',
-            fontWeight: 700,
-            fontSize: "4.5rem",
-            color: "white",
-            display:'flex',
-            alignContent: 'center',
-            justifyContent:'center',
-            marginBottom:-10,
-
-        }}>Intelligent API Gateway</Typography>
+       <h1 className="font-sans font-bold text-7xl text-white flex items-center justify-center -mb-2.5">
+            Intelligent API Gateway
+        </h1>
     <div className="flex items-center  min-h-screen bg-black p-2">
      
       <div className="flex items-center gap-8">
@@ -100,18 +91,12 @@ const page = () => {
   {/* Load Balancer */}
   <div className="bg-red-500 flex items-center justify-center"
        style={{ width: "100px", height: "400px" }}>
-    <Typography
-      variant="h3"
-      sx={{
-        color: "white",
-        fontFamily: "monospace",
-        writingMode: "sideways-lr",
-        textOrientation: "upright",
-        padding: "25px",
-      }}
+    <span
+      className="text-white font-mono text-2xl p-6"
+      style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
     >
       Load Balancer
-    </Typography>
+    </span>
   </div>
 
   {/* YELLOW LINE BETWEEN LB & API GATEWAY */}
@@ -137,18 +122,12 @@ const page = () => {
   {/* API Gateway */}
   <div className="bg-red-500 flex items-center justify-center ml-[300px]"
        style={{ width: "100px", height: "400px" }}>
-    <Typography
-      variant="h3"
-      sx={{
-        color: "white",
-        fontFamily: "monospace",
-        writingMode: "sideways-lr",
-        textOrientation: "upright",
-        padding: "25px",
-      }}
+    <span
+      className="text-white font-mono text-2xl p-6"
+      style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
     >
       API Gateway
-    </Typography>
+    </span>
   </div>
 
       <svg width="250" height="400" className="absolute" style={{ left: 500 }}>

@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import { Settings2, Sparkles, Zap } from 'lucide-react'
 import { ReactNode } from 'react'
-import { DoorOpen } from 'lucide-react';
-import { Button } from '@mui/material';
-import Typography from '@mui/material/Typography';
+import { DoorOpen } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Features({ className = "" }) {
     return (
@@ -29,16 +29,8 @@ export default function Features({ className = "" }) {
                             <p className="text-sm font-mono">Extensive customization options, allowing you to tailor every aspect to meet your specific needs.</p>
                         </CardContent>
                        <div className="flex justify-center mt-4">
-    <Button
-        className="w-20 h-8"
-        href="/api-gateway"
-        sx={{
-            backgroundColor: "blue",
-            color: "white",
-            fontFamily:'monospace',
-        }}
-    >
-        Visit
+    <Button asChild size="sm" className="w-20 h-8 bg-blue-500 text-white font-mono hover:bg-blue-600">
+        <Link href="/api-gateway">Visit</Link>
     </Button>
 </div>
                     </Card>

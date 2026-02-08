@@ -1,0 +1,91 @@
+{
+  "info": {
+    "name": "API Gateway - Intelligent Gateway",
+    "description": "Test all API Gateway endpoints. Set `token` variable after running Login (user) or Login (admin).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000" },
+    { "key": "token", "value": "" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{token}}", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "1. Auth (no token needed)",
+      "item": [
+        {
+          "name": "Login (user) - get token",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/login?username=testuser",
+              "host": ["{{base_url}}"],
+              "path": ["login"],
+              "query": [{ "key": "username", "value": "testuser" }]
+            },
+            "description": "Get JWT for a normal user. Copy access_token into collection variable 'token' for proxied requests."
+          }
+        },
+        {
+          "name": "Login (admin) - get admin token",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/login?username=admin",
+              "host": ["{{base_url}}"],
+              "path": ["login"],
+              "query": [{ "key": "username", "value": "admin" }]
+            },
+            "description": "Get JWT for admin. Use this token to call /admin/status."
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Admin (admin token required)",
+      "item": [
+        {
+          "name": "Admin - Gateway status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/admin/status",
+            "description": "Returns gateway and upstream status. Only works with token from Login (admin)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Proxied upstream (any user token)",
+      "item": [
+        {
+          "name": "GET /hello",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/hello",
+            "description": "Proxied to upstream. Returns service name and message from Service 1 or 2."
+          }
+        },
+        {
+          "name": "GET /health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/health",
+            "description": "Proxied to upstream health check. Returns { \"status\": \"ok\" }."
+          }
+        }
+      ]
+    }
+  ]
+}

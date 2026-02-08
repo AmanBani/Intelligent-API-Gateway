@@ -151,37 +151,16 @@ export default function MainSection() {
                                     key={2}
                                     size="lg"
                                     variant="ghost"
-                                     className="h-10.5 rounded-xl px-5 bg-gray-900 "
-                                     whileHover={{ scale: 1.05 }}
-                                     whileTap={{ scale: 0.95 }}
-                                     
-                                    //  initial={{ y: -100, opacity: 0 }}
-                                    //     animate={{
-                                    //         y: 0,
-                                    //         opacity: 1,
-                                    //     }}
-                                    //     transition={{
-                                    //         type: "spring",
-                                    //         stiffness: 120,
-                                    //         damping: 10,
-                                    //         duration: 4,
-                                    //         delay: 1
-                                    //     }}
-                                     
->
-                                <Link href="#link">
-                                    <span className="text-nowrap">Aman Bani</span>
-                                </Link>
-                                 <Link href="#link">
-                                    <span className="text-nowrap">Aman Bani</span>
-                                </Link>
-                                 <Link href="#link">
-                                    <span className="text-nowrap">Aman Bani</span>
-                                </Link>
-                                <Link href="#link">
-                                    <span className="text-nowrap">Aman Bani</span>
-                                </Link>
-                                <Link href="#link">
+                                    className="h-10.5 rounded-xl px-5 bg-gray-900"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    asChild
+                                >
+                                <Link
+                                    href="https://portfolio-1-gold-five-67.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <span className="text-nowrap">Aman Bani</span>
                                 </Link>
                                 </MotionButton>
