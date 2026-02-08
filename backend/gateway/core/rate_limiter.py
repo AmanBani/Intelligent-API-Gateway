@@ -1,10 +1,10 @@
+import os
 from redis import asyncio as aioredis
 from fastapi import Request, HTTPException
 from core.auth import verify_token
 
-
-# Redis connection URL
-REDIS_URL = "redis://localhost:6380"
+# Redis: set REDIS_URL in env to attach to your backend (e.g. Upstash)
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6380")
 
 # Limit settings
 RATE_LIMIT = 3       # max number of requests

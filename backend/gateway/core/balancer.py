@@ -1,4 +1,5 @@
 import asyncio
+import os
 import time
 import httpx
 from redis import asyncio as aioredis
@@ -6,9 +7,8 @@ from typing import List, Dict, Optional
 
 from core.config import UPSTREAMS as DEFAULT_UPSTREAMS
 
-##################    CONFIGURATION #############
-
-REDIS_URL = "redis://localhost:6380"    
+# Redis: set REDIS_URL in env to attach to your backend (e.g. Upstash)
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6380")    
 HEALTH_PATH = "/health"
 HEALTH_CHECK_INTERVAL = 5
 FAILURE_THRESHOLD = 3

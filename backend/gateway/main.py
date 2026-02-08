@@ -1,7 +1,8 @@
 import httpx
 import itertools
 
-from fastapi import FastAPI, Request,Response, HTTPException
+from fastapi import FastAPI, Request, Response, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from core.rate_limiter import rate_limiter
 from routes.public_routes import router as public_router
 from core.auth import verify_token
@@ -13,11 +14,17 @@ from typing import List, Dict, Optional
 from routes.admin_routes import router as admin_router
 from core.config import UPSTREAMS as upstream_servers
 
-
-
 app = FastAPI(
     title="Intelligent API-Gateway",
     version="1.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(public_router)

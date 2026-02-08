@@ -58,6 +58,62 @@ You should see: `PONG`.
 
 ---
 
+## Check messages / data in Redis
+
+### Option A: Python script (recommended)
+
+From the **project root** (with Redis and gateway env):
+
+```powershell
+cd "d:\asus desktop\Software\practise projects\api-gateway"
+pip install redis
+python backend/gateway/scripts/check_redis.py
+```
+
+Or from `backend/gateway`:
+
+```powershell
+cd backend\gateway
+pip install redis
+python scripts/check_redis.py
+```
+
+This prints all gateway-related keys:
+
+- **rate_limit:\*** – per-user request count and TTL (resets in Xs)
+- **up_health:\*** – upstream health (1 = healthy)
+- **up_conn:\*** – active connections per upstream
+- **up_fail:\*** – failure count per upstream
+- **up_lat:\*** – latency in ms per upstream
+
+### Option B: redis-cli (raw commands)
+
+If Redis is running in Docker:
+
+```powershell
+docker compose exec redis redis-cli
+```
+
+Then inside the CLI (Redis listens on 6379 inside the container):
+
+```text
+KEYS *
+GET rate_limit:playground
+TTL rate_limit:playground
+GET up_health:http://localhost:7001
+GET up_conn:http://localhost:7001
+```
+
+To connect from the host (e.g. if you have `redis-cli` installed and Redis on port 6380):
+
+```powershell
+redis-cli -p 6380
+KEYS *
+GET rate_limit:playground
+```
+
+---
+
 ## Quick reference
 
 | Task              | Command (from project root)   |
