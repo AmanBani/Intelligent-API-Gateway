@@ -125,10 +125,18 @@ Step-by-step guide to deploy **Frontend**, **API Gateway**, **Upstream Services*
 
 See the “Local development” section in this repo’s main README or run:
 
+**Bash / Git Bash / WSL:**
 - **Redis:** `docker compose up -d`
 - **Gateway:** `cd backend/gateway && uvicorn main:app --reload --port 8000`
 - **Service 1:** `cd backend/upstream_services/service_1 && uvicorn main:app --reload --port 7001`
 - **Service 2:** `cd backend/upstream_services/service_2 && uvicorn main:app --reload --port 7002`
 - **Frontend:** `cd frontend && echo "NEXT_PUBLIC_API_GATEWAY_URL=http://localhost:8000" > .env.local && npm run dev`
+
+**PowerShell (Windows):** Use `;` instead of `&&` to avoid "The token '&&' is not a valid statement separator":
+- **Redis:** `docker compose up -d`
+- **Gateway:** `cd backend/gateway; uvicorn main:app --reload --port 8000`
+- **Service 1:** `cd backend/upstream_services/service_1; uvicorn main:app --reload --port 7001`
+- **Service 2:** `cd backend/upstream_services/service_2; uvicorn main:app --reload --port 7002`
+- **Frontend:** `cd frontend; npm run dev` (set `NEXT_PUBLIC_API_URL=http://127.0.0.1:8000` in `frontend\.env.local` first if needed)
 
 Then open **http://localhost:3000/api-gateway**.

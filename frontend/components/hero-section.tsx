@@ -6,7 +6,7 @@ import { ArrowRight, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { TextEffect } from '@/components/ui/text-effect'
-import { AnimatedGroup } from '@/components/ui/animated-group'
+import { AnimatedGroup, type AnimatedGroupProps } from '@/components/ui/animated-group'
 import { HeroHeader } from "@/components/header"
 import IntegrationsSection from "@/components/integrations-4"
 
@@ -15,26 +15,6 @@ const MotionButton = motion(Button);
 
 
 import system_design from "@/public/images/system_design.jpg"
-
-const transitionVariants = {
-    item: {
-        hidden: {
-            opacity: 0,
-            filter: 'blur(12px)',
-            y: 12,
-        },
-        visible: {
-            opacity: 1,
-            filter: 'blur(0px)',
-            y: 0,
-            transition: {
-                type: 'spring' as const,
-                bounce: 0.3,
-                duration: 1.5,
-            },
-        },
-    },
-}
 
 export default function MainSection() {
     return (
@@ -51,30 +31,32 @@ export default function MainSection() {
                 <section>
                     <div className="relative pt-24 md:pt-36">
                         <AnimatedGroup
-                            variants={{
-                                container: {
-                                    visible: {
-                                        transition: {
-                                            delayChildren: 1,
+                            variants={
+                                {
+                                    container: {
+                                        visible: {
+                                            transition: {
+                                                delayChildren: 1,
+                                            },
                                         },
                                     },
-                                },
-                                item: {
-                                    hidden: {
-                                        opacity: 0,
-                                        y: 20,
-                                    },
-                                    visible: {
-                                        opacity: 1,
-                                        y: 0,
-                                        transition: {
-                                            type: 'spring' as const,
-                                            bounce: 0.3,
-                                            duration: 2,
+                                    item: {
+                                        hidden: {
+                                            opacity: 0,
+                                            y: 20,
+                                        },
+                                        visible: {
+                                            opacity: 1,
+                                            y: 0,
+                                            transition: {
+                                                type: 'spring',
+                                                bounce: 0.3,
+                                                duration: 2,
+                                            },
                                         },
                                     },
-                                },
-                            }}
+                                } as AnimatedGroupProps['variants']
+                            }
                             className="mask-b-from-35% mask-b-to-90% absolute inset-0 top-56 -z-20 lg:top-32"
                         >
                             <div aria-hidden className="size-full" />
@@ -118,17 +100,35 @@ export default function MainSection() {
                                 </TextEffect>
 
                                 <AnimatedGroup
-                                    variants={{
-                                        container: {
-                                            visible: {
-                                                transition: {
-                                                    staggerChildren: 0.05,
-                                                    delayChildren: 0.75,
+                                    variants={
+                                        {
+                                            container: {
+                                                visible: {
+                                                    transition: {
+                                                        staggerChildren: 0.05,
+                                                        delayChildren: 0.75,
+                                                    },
                                                 },
                                             },
-                                        },
-                                        ...transitionVariants,
-                                    }}
+                                            item: {
+                                                hidden: {
+                                                    opacity: 0,
+                                                    filter: 'blur(12px)',
+                                                    y: 12,
+                                                },
+                                                visible: {
+                                                    opacity: 1,
+                                                    filter: 'blur(0px)',
+                                                    y: 0,
+                                                    transition: {
+                                                        type: 'spring',
+                                                        bounce: 0.3,
+                                                        duration: 1.5,
+                                                    },
+                                                },
+                                            },
+                                        } as AnimatedGroupProps['variants']
+                                    }
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
                                     <div
                                         key={1}
