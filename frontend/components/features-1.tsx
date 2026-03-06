@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Settings2, Sparkles, Zap } from 'lucide-react'
+import { Layers, Settings2, Sparkles, Zap } from 'lucide-react'
 import { ReactNode } from 'react'
 import { DoorOpen } from 'lucide-react'
 import Link from 'next/link'
@@ -38,18 +38,23 @@ export default function Features({ className = "" }) {
                     <Card className="group shadow-zinc-950/5">
                         <CardHeader className="pb-3">
                             <CardDecorator>
-                                <Settings2
+                                <Layers
                                     className="size-6"
                                     aria-hidden
                                 />
                             </CardDecorator>
 
-                            <h3 className="mt-6 text-3xl font-medium font-mono">Chunk Storage</h3>
+                            <h3 className="mt-6 text-3xl font-medium font-mono">OSI System Architecture</h3>
                         </CardHeader>
 
                         <CardContent>
-                            <p className="mt-3 text-sm font-mono">From design elements to functionality, you have complete control to create a unique and personalized experience.</p>
+                            <p className="mt-3 text-sm font-mono">Explore the 7-layer OSI model and understand how data flows across network protocols from physical to application layer.</p>
                         </CardContent>
+                        <div className="flex justify-center mt-4">
+                            <Button asChild size="sm" className="w-20 h-8 bg-blue-500 text-white font-mono hover:bg-blue-600">
+                                <Link href="/osi-system-architecture">Visit</Link>
+                            </Button>
+                        </div>
                     </Card>
 
                     <Card className="group shadow-zinc-950/5">
